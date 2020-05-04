@@ -1,0 +1,91 @@
+import turtle
+import math
+#set background color
+screen  = turtle.Screen()
+screen.bgcolor("skyblue")
+#creat out turtle
+george = turtle.Turtle()
+george.color("pink")
+george.shape("turtle")
+george.speed(2)
+#define a function to draw and fill a rectangle 
+def drawRectangle(t,width ,height, color):
+    t.fillcolor("red")
+    t.begin_fill()
+    t.forward(width)
+    t.left(90)
+    t.forward(height)
+    t.left(90)
+    t.forward(width)
+    t.left(90)
+    t.forward(height)
+    t.left(90)
+    t.end_fill()
+    #define a function to fill and draw a equlateral right traingle
+def drawTriangle(t, length, color):
+    t.fillcolor(color)
+    t.begin_fill()
+    t.forward(length)
+    t.left(135)
+    t.forward(length / math.sqrt(2))
+    t.left(90)
+    t.forward(length / math.sqrt(2))
+    t.left(135)
+    t.end_fill()
+    #define a function to draw and fill a parallelogram
+def drawParallelogram(t,width,height,color):
+    t.fillcolor(color)
+    t.begin_fill()
+    t.left(30)
+    t.forward(width)
+    t.left(60)
+    t.forward(height)
+    t.left(120)
+    t.forward(width)
+    t.left(60)
+    t.forward(height)
+    t.left(90)
+    t.end_fill()
+    #draw and fill the front of the house
+george.penup()
+george.goto(-150, -120)
+george.pendown()
+drawRectangle(george, 100, 110, "blue") 
+#draw and fill the front door
+george.penup()
+george.goto(-120, -120)
+george.pendown()
+drawRectangle(george, 40, 60, "lightgreen")
+#front roof
+george.penup()
+george.goto(-150, -10)
+george.pendown()
+drawTriangle(george, 100, "magenta")
+#side of the house
+george.penup()
+george.goto(-50 ,-120)
+george.pendown()
+drawParallelogram(george, 60 ,110, "yellow")
+#window
+george.penup()
+george.goto(-30, -60)
+george.pendown()
+#side of roof
+george.penup()
+george.goto(-50, -10)
+george.pendown()
+george.fillcolor("orange")
+george.begin_fill()
+george.left(30)
+george.forward(60)
+george.left(105)
+george.forward(100 / math.sqrt(2))
+george.left(75)
+george.forward(60)
+george.left(100 / math.sqrt(2))
+george.left(45)
+george.end_fill()
+#bring the turtle down to the front door ,and we're done
+george.penup()
+george.goto(-100, -150)
+george.left(90)
